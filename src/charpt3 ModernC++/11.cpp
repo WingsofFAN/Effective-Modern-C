@@ -62,12 +62,10 @@ int main()
     // islucky(true);        // 编译错误
     // islucky('a');         // 编译错误
 
-
     int num = 100;
     processPointer(&num);
     // processPointer(nullptr);  // 编译错误
     // processPointer("hello");  // 编译错误
-
 
     return 0;
 }
