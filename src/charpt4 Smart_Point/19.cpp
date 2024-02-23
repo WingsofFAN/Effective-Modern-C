@@ -79,6 +79,30 @@ int main()
     std::cout << "p6.use_count: " << p6.use_count() << std::endl;
     std::cout << "p7.use_count: " << p7.use_count() << std::endl;
 
+    // 3.为了弥补2中的不足,希望在定义Widget时,可以将this指针设置为智能指针,
+    // 即使用 基类模板 std::enable_shared_from_this<T> 来实现
+
+    // class Widget2 : public std::enable_shared_from_this<Widget2> {
+    // public:
+    //     Widget2() { std::cout << "Widget2(" << this << ")" << std::endl; }
+    //     ~Widget2() { std::cout << "~Widget2(" << this << ")" << std::endl; }
+    // };
+    //为了避免用户在std::shared_ptr指涉到该对象前就调用了引发shared_ptr的成员函数,
+    //继承自std::enable_shared_from_this的类通常会将其构造函数声明为private访问层级,
+    //并且只允许用户通过调用返回std::shared_ptr的工厂函数来创建对象.
+    /*class Widget: public std::enable_shared_from_this<Widget> {
+        public:
+        // 将实参完美转发给 private 构造函数的工厂函数
+        template<typename... Ts>
+        static std::shared_ptr<Widget> create(Ts&&... params);
+        ...
+        void process();   //同前
+        ...
+        private:
+        ...               //构造由数
+        };
+    */
+
 
     return 0;   
 }
