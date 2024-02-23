@@ -138,7 +138,7 @@ int main()
 
 
     std::unique_ptr<int> sp1 = std::make_unique<int>(10);
-    auto sp2 = sp1 ;                                     // 调用不了
+    // auto sp2 = sp1 ;                                     // 调用不了
     auto sp2 = std::move(sp1);                
     std::cout << "sp1.get() " << sp1.get() << std::endl;
     std::cout << "sp2.get() " << sp2.get() << std::endl;
