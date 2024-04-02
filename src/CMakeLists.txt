@@ -3,4 +3,8 @@ add_subdirectory("charpt1 Deducing_Types")
 add_subdirectory("charpt2 Auto")
 add_subdirectory("charpt3 ModernC++")
 add_subdirectory("charpt4 Smart_Point")
+add_subdirectory("charpt5 References")
+add_subdirectory("charpt6 lambda")
+# add_subdirectory("charpt7 Concurrency")
+
 
